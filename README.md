@@ -1,59 +1,45 @@
 # 📸 Gasto na Foto
 
-Uma aplicação web que utiliza Inteligência Artificial para analisar comprovantes de compras e organizar os gastos automaticamente.
+> Uma aplicação web que utiliza Inteligência Artificial para analisar comprovantes de compras e organizar gastos automaticamente.
 
-## 🤖 Sobre o projeto
+## 🧠 Sobre o projeto
 
-O Gasto na Foto foi desenvolvido para facilitar o controle de gastos.
+O **Gasto na Foto** é uma aplicação web desenvolvida para facilitar a organização de gastos.
 
-O usuário seleciona ou fotografa um comprovante de compra e a Inteligência Artificial analisa a imagem para identificar informações como:
+A proposta é simples: o usuário seleciona ou fotografa um comprovante de compra e a Inteligência Artificial analisa a imagem, identificando informações importantes da compra.
 
-- 🏷️ Categoria da compra
-- 🏪 Estabelecimento
-- 🛒 Produtos comprados
-- 💰 Valor total da nota
+A aplicação então organiza os dados e apresenta os gastos de forma visual.
 
-Após a análise, as informações são organizadas na tela e o valor da compra é adicionado ao total geral.
-
-## 🚀 Funcionalidades
+## ✨ Funcionalidades
 
 - 📸 Upload de comprovantes
-- 🤖 Análise do comprovante utilizando IA
-- 🏷️ Classificação por categoria
+- 🤖 Análise de imagens com Inteligência Artificial
 - 🏪 Identificação do estabelecimento
 - 🛒 Identificação dos produtos
-- 💰 Cálculo do total da nota
-- 📊 Soma dos gastos
+- 🏷️ Classificação dos gastos por categoria
+- 💰 Identificação do valor total
+- 📊 Resumo dos gastos por categoria
+- 💵 Cálculo do total geral
+- 🗑️ Limpeza dos gastos
 - 📱 Interface responsiva
+- ⏳ Feedback durante o processamento da IA
 
-## 🛠️ Tecnologias utilizadas
+## 🤖 Como funciona
 
-- HTML5
-- CSS3
-- JavaScript
-- Puter.js
-- Inteligência Artificial
-- Manipulação do DOM
-- File Input
-
-## 🧠 Como funciona
-
-O funcionamento da aplicação segue o seguinte fluxo:
-
-1. O usuário seleciona um comprovante.
-2. O JavaScript recebe a imagem.
-3. A imagem e uma instrução são enviadas para a Inteligência Artificial.
-4. A IA analisa o comprovante.
-5. A resposta é processada pelo JavaScript.
-6. As informações são organizadas em um card.
-7. O valor da compra é adicionado ao total geral.
-
-## 📂 Estrutura do projeto
+O funcionamento da aplicação segue este fluxo:
 
 ```text
-gasto-na-foto/
-│
-├── index.html
-├── styles.css
-├── scripts.js
-└── README.md
+📸 Comprovante
+      ↓
+🤖 Inteligência Artificial
+      ↓
+🔎 Análise das informações
+      ↓
+🏪 Estabelecimento
+🛒 Produtos
+🏷️ Categoria
+💰 Valor
+      ↓
+📊 Organização dos gastos
+      ↓
+💵 Total geral
