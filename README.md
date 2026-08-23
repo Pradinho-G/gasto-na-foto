@@ -1,5 +1,7 @@
 # 📸 Gasto na Foto
 
+![Gasto na Foto](screenshots/gasto-na-foto.png.png)
+
 > Uma aplicação web que utiliza Inteligência Artificial para analisar comprovantes de compras e organizar gastos automaticamente.
 
 ## 🧠 Sobre o projeto
