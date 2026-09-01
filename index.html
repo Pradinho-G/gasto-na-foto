@@ -1,63 +1,69 @@
-<!DOCTYPE html> <!--VERSÃO DO HTML (MAIS MODERNA)-->
+<!DOCTYPE html>
+<html lang="pt-br">
 
-<html lang="pt-br"> <!-- FICA TODO O SITE -->
+<head>
 
-<head> <!-- CABEÇA - CONFIGURAÇÕES -->
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <meta
+        name="viewport"
+        content="width=device-width, initial-scale=1.0"
+    >
+
     <link rel="stylesheet" href="styles.css">
+
     <script src="https://js.puter.com/v2/"></script>
+
     <title>GASTO DA FOTO</title>
+
 </head>
 
-<body> <!-- TODA A PARTE VISÍVEL -->
+<body>
 
     <div>
 
         <h1>📸 Gasto na Foto</h1>
-        <p class="topo">Fotografe o comprovante. A IA anota pra você.</p>
+
+        <p class="topo">
+            Fotografe o comprovante. A IA anota pra você.
+        </p>
 
     </div>
+
 
     <div class="caixa-total">
 
         <p>Total gasto</p>
 
-        <h2 class="total-gasto">R$ 0,00</h2>
-
-        <button class="limpar" onclick="limparGastos()">
-            🗑️ Limpar gastos
-        </button>
+        <h2 class="total-gasto">
+            R$ 0,00
+        </h2>
 
     </div>
-    <div class="resumo">
 
-        <h2>📊 Resumo dos gastos</h2>
 
-        <div class="categorias">
-
-        </div>
-
-    </div>
-    </div>
-
-    <!-- INPUT PARA SELECIONAR IMAGENS -->
-
-    <!-- label -  -->
-    <!-- change - mudar -->
     <label>
+
         🧾 Toque para fotografar o comprovante
-        <input class="foto" onchange="lerFoto()" type="file" accept="image/*">
+
+        <input
+            class="foto"
+            onchange="lerFoto()"
+            type="file"
+            accept="image/*"
+            capture="environment"
+        >
+
     </label>
+
 
     <div class="lista">
 
     </div>
 
-    <p class="status"></p>
+
+    <script src="scripts.js"></script>
 
 </body>
-
-<script src="scripts.js"></script>
 
 </html>

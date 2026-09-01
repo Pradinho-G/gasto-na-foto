@@ -4,32 +4,21 @@
 
 /* Seleciona todos os elementos */
 * {
-    margin: 0;
-    /* Remove a margem padrão */
-    padding: 0;
-    /* Remove o espaço interno padrão */
-    box-sizing: border-box;
-    /* Inclui padding e borda no tamanho */
+    margin: 0; /* Remove a margem padrão */
+    padding: 0; /* Remove o espaço interno padrão */
+    box-sizing: border-box; /* Inclui padding e borda no tamanho */
 }
 
 /* Configurações da página */
 body {
-    font-family: "Segoe UI", Arial, sans-serif;
-    /* Define a fonte */
-    background: linear-gradient(135deg, #eef2ff, #f8fafc);
-    /* Fundo degradê */
-    min-height: 100vh;
-    /* Altura mínima igual à tela */
-    display: flex;
-    /* Ativa o Flexbox */
-    flex-direction: column;
-    /* Organiza os elementos em coluna */
-    align-items: center;
-    /* Centraliza horizontalmente */
-    padding: 50px 20px;
-    /* Espaço interno da página */
-    color: #1e293b;
-    /* Cor padrão dos textos */
+    font-family: "Segoe UI", Arial, sans-serif; /* Define a fonte */
+    background: linear-gradient(135deg, #eef2ff, #f8fafc); /* Fundo degradê */
+    min-height: 100vh; /* Altura mínima igual à tela */
+    display: flex; /* Ativa o Flexbox */
+    flex-direction: column; /* Organiza os elementos em coluna */
+    align-items: center; /* Centraliza horizontalmente */
+    padding: 50px 20px; /* Espaço interno da página */
+    color: #1e293b; /* Cor padrão dos textos */
 }
 
 
@@ -38,11 +27,9 @@ body {
 ================================ */
 
 /* Seleciona as divs diretamente dentro do body */
-body>div {
-    width: 100%;
-    /* Ocupa toda a largura disponível */
-    max-width: 500px;
-    /* Limita a largura máxima */
+body > div {
+    width: 100%; /* Ocupa toda a largura disponível */
+    max-width: 500px; /* Limita a largura máxima */
 }
 
 
@@ -51,31 +38,23 @@ body>div {
 ================================ */
 
 /* Primeira div do body */
-body>div:first-child {
-    text-align: center;
-    /* Centraliza o texto */
-    margin-bottom: 25px;
-    /* Espaço abaixo */
+body > div:first-child {
+    text-align: center; /* Centraliza o texto */
+    margin-bottom: 25px; /* Espaço abaixo */
 }
 
 /* Título principal */
 h1 {
-    font-size: 36px;
-    /* Tamanho do título */
-    font-weight: 750;
-    /* Espessura da fonte */
-    color: #1e293b;
-    /* Cor do título */
-    margin-bottom: 10px;
-    /* Espaço abaixo do título */
+    font-size: 36px; /* Tamanho do título */
+    font-weight: 750; /* Espessura da fonte */
+    color: #1e293b; /* Cor do título */
+    margin-bottom: 10px; /* Espaço abaixo do título */
 }
 
 /* Texto abaixo do título */
 .topo {
-    color: #64748b;
-    /* Cor do texto */
-    font-size: 16px;
-    /* Tamanho do texto */
+    color: #64748b; /* Cor do texto */
+    font-size: 16px; /* Tamanho do texto */
 }
 
 
@@ -84,60 +63,43 @@ h1 {
 ================================ */
 
 /* Segunda div do body */
-body>div:nth-child(2) {
-    background: rgba(255, 255, 255, 0.9);
-    /* Fundo branco transparente */
-    border: 1px solid #e2e8f0;
-    /* Cria uma borda */
-    border-radius: 24px;
-    /* Arredonda os cantos */
-    padding: 30px;
-    /* Espaço interno */
-    margin-bottom: 25px;
-    /* Espaço abaixo do card */
-    text-align: center;
-    /* Centraliza o conteúdo */
+body > div:nth-child(2) {
+    background: rgba(255, 255, 255, 0.9); /* Fundo branco transparente */
+    border: 1px solid #e2e8f0; /* Cria uma borda */
+    border-radius: 24px; /* Arredonda os cantos */
+    padding: 30px; /* Espaço interno */
+    margin-bottom: 25px; /* Espaço abaixo do card */
+    text-align: center; /* Centraliza o conteúdo */
 
     box-shadow:
-        0 10px 30px rgba(15, 23, 42, 0.08);
-    /* Cria sombra */
+        0 10px 30px rgba(15, 23, 42, 0.08); /* Cria sombra */
 
-    transition: 0.3s ease;
-    /* Suaviza as mudanças */
+    transition: 0.3s ease; /* Suaviza as mudanças */
 }
 
 /* Efeito quando passa o mouse */
-body>div:nth-child(2):hover {
-    transform: translateY(-3px);
-    /* Move o card para cima */
+body > div:nth-child(2):hover {
+    transform: translateY(-3px); /* Move o card para cima */
 
     box-shadow:
-        0 15px 35px rgba(15, 23, 42, 0.12);
-    /* Aumenta a sombra */
+        0 15px 35px rgba(15, 23, 42, 0.12); /* Aumenta a sombra */
 }
 
 
 /* Texto "Total gasto" */
 .caixa-total p {
-    font-size: 15px;
-    /* Tamanho do texto */
-    color: #64748b;
-    /* Cor do texto */
-    margin-bottom: 8px;
-    /* Espaço abaixo */
+    font-size: 15px; /* Tamanho do texto */
+    color: #64748b; /* Cor do texto */
+    margin-bottom: 8px; /* Espaço abaixo */
 }
 
 
 /* Valor total */
 .total-gasto {
-    font-size: 42px;
-    /* Tamanho do valor */
-    font-weight: 800;
-    /* Deixa o texto mais grosso */
-    color: #4f46e5;
-    /* Cor do valor */
-    margin-bottom: 8px;
-    /* Espaço abaixo */
+    font-size: 42px; /* Tamanho do valor */
+    font-weight: 800; /* Deixa o texto mais grosso */
+    color: #4f46e5; /* Cor do valor */
+    margin-bottom: 8px; /* Espaço abaixo */
 }
 
 
@@ -146,54 +108,37 @@ body>div:nth-child(2):hover {
 ================================ */
 
 /* Label que contém o texto e o input */
-body>label {
-    width: 100%;
-    /* Ocupa toda a largura */
-    max-width: 500px;
-    /* Limita a largura */
+body > label {
+    width: 100%; /* Ocupa toda a largura */
+    max-width: 500px; /* Limita a largura */
+    
+    display: block; /* Faz o label funcionar como um bloco */
 
-    display: block;
-    /* Faz o label funcionar como um bloco */
+    background: white; /* Fundo branco */
+    border: 2px dashed #c7d2fe; /* Borda tracejada */
+    border-radius: 24px; /* Arredonda os cantos */
+    padding: 35px 25px; /* Espaço interno */
 
-    background: white;
-    /* Fundo branco */
-    border: 2px dashed #c7d2fe;
-    /* Borda tracejada */
-    border-radius: 24px;
-    /* Arredonda os cantos */
-    padding: 35px 25px;
-    /* Espaço interno */
+    text-align: center; /* Centraliza o conteúdo */
 
-    text-align: center;
-    /* Centraliza o conteúdo */
-
-    color: #475569;
-    /* Cor do texto */
-    font-size: 16px;
-    /* Tamanho do texto */
-    font-weight: 600;
-    /* Deixa o texto um pouco mais grosso */
+    color: #475569; /* Cor do texto */
+    font-size: 16px; /* Tamanho do texto */
+    font-weight: 600; /* Deixa o texto um pouco mais grosso */
 
     box-shadow:
-        0 8px 25px rgba(15, 23, 42, 0.06);
-    /* Cria sombra */
+        0 8px 25px rgba(15, 23, 42, 0.06); /* Cria sombra */
 
-    transition: all 0.3s ease;
-    /* Suaviza as mudanças */
+    transition: all 0.3s ease; /* Suaviza as mudanças */
 
-    cursor: pointer;
-    /* Mostra a mãozinha */
+    cursor: pointer; /* Mostra a mãozinha */
 }
 
 
 /* Efeito ao passar o mouse */
-body>label:hover {
-    border-color: #6366f1;
-    /* Muda a cor da borda */
-    background: #f8faff;
-    /* Muda o fundo */
-    transform: translateY(-2px);
-    /* Move levemente para cima */
+body > label:hover {
+    border-color: #6366f1; /* Muda a cor da borda */
+    background: #f8faff; /* Muda o fundo */
+    transform: translateY(-2px); /* Move levemente para cima */
 }
 
 
@@ -203,41 +148,29 @@ body>label:hover {
 
 /* Seleciona o input de arquivo */
 input[type="file"] {
-    width: 100%;
-    /* Ocupa toda a largura */
-    margin-top: 20px;
-    /* Espaço acima */
+    width: 100%; /* Ocupa toda a largura */
+    margin-top: 20px; /* Espaço acima */
 
-    padding: 16px;
-    /* Espaço interno */
+    padding: 16px; /* Espaço interno */
 
-    border-radius: 14px;
-    /* Arredonda os cantos */
-    border: 1px solid #e2e8f0;
-    /* Cria uma borda */
+    border-radius: 14px; /* Arredonda os cantos */
+    border: 1px solid #e2e8f0; /* Cria uma borda */
 
-    background: #f8fafc;
-    /* Cor de fundo */
-    color: #475569;
-    /* Cor do texto */
+    background: #f8fafc; /* Cor de fundo */
+    color: #475569; /* Cor do texto */
 
-    font-size: 14px;
-    /* Tamanho do texto */
+    font-size: 14px; /* Tamanho do texto */
 
-    cursor: pointer;
-    /* Mostra cursor de clique */
+    cursor: pointer; /* Mostra cursor de clique */
 
-    transition: 0.3s ease;
-    /* Deixa mudanças suaves */
+    transition: 0.3s ease; /* Deixa mudanças suaves */
 }
 
 
 /* Efeito ao passar o mouse */
 input[type="file"]:hover {
-    background: #eef2ff;
-    /* Muda o fundo */
-    border-color: #a5b4fc;
-    /* Muda a cor da borda */
+    background: #eef2ff; /* Muda o fundo */
+    border-color: #a5b4fc; /* Muda a cor da borda */
 }
 
 
@@ -247,38 +180,28 @@ input[type="file"]:hover {
 
 /* Botão interno do input */
 input[type="file"]::file-selector-button {
-    background: #4f46e5;
-    /* Cor do botão */
-    color: white;
-    /* Cor do texto */
+    background: #4f46e5; /* Cor do botão */
+    color: white; /* Cor do texto */
 
-    border: none;
-    /* Remove a borda */
+    border: none; /* Remove a borda */
 
-    padding: 10px 16px;
-    /* Espaço interno */
+    padding: 10px 16px; /* Espaço interno */
 
-    border-radius: 10px;
-    /* Arredonda o botão */
+    border-radius: 10px; /* Arredonda o botão */
 
-    font-weight: 600;
-    /* Deixa o texto mais grosso */
+    font-weight: 600; /* Deixa o texto mais grosso */
 
-    cursor: pointer;
-    /* Mostra cursor de clique */
+    cursor: pointer; /* Mostra cursor de clique */
 
-    margin-right: 12px;
-    /* Espaço à direita */
+    margin-right: 12px; /* Espaço à direita */
 
-    transition: 0.3s ease;
-    /* Suaviza mudanças */
+    transition: 0.3s ease; /* Suaviza mudanças */
 }
 
 
 /* Efeito ao passar o mouse no botão */
 input[type="file"]::file-selector-button:hover {
-    background: #4338ca;
-    /* Escurece o botão */
+    background: #4338ca; /* Escurece o botão */
 }
 
 
@@ -303,251 +226,19 @@ input[type="file"]::file-selector-button:hover {
 @media (max-width: 600px) {
 
     body {
-        padding: 35px 15px;
-        /* Diminui o espaço da página */
+        padding: 35px 15px; /* Diminui o espaço da página */
     }
 
     h1 {
-        font-size: 28px;
-        /* Diminui o título no celular */
+        font-size: 28px; /* Diminui o título no celular */
     }
 
     .total-gasto {
-        font-size: 36px;
-        /* Diminui o valor no celular */
+        font-size: 36px; /* Diminui o valor no celular */
     }
 
-    body>div:nth-child(2),
-    body>label {
-        padding: 25px 20px;
-        /* Diminui o espaço interno */
+    body > div:nth-child(2),
+    body > label {
+        padding: 25px 20px; /* Diminui o espaço interno */
     }
-
-
-}
-
-/* ================================
-   CARDS DOS COMPROVANTES
-================================ */
-
-/* Cada comprovante vira um card */
-.comprovante {
-    background: white;
-    /* Fundo branco */
-    border: 1px solid #e2e8f0;
-    /* Borda */
-    border-radius: 20px;
-    /* Cantos arredondados */
-    padding: 22px;
-    /* Espaço interno */
-    margin-bottom: 18px;
-    /* Espaço entre os comprovantes */
-
-    box-shadow:
-        0 8px 25px rgba(15, 23, 42, 0.06);
-
-    transition: 0.3s ease;
-    /* Deixa a animação suave */
-}
-
-
-/* Quando passar o mouse no comprovante */
-.comprovante:hover {
-    transform: translateY(-3px);
-    /* Sobe um pouco */
-
-    box-shadow:
-        0 12px 30px rgba(15, 23, 42, 0.10);
-}
-
-
-/* Categoria do comprovante */
-.categoria {
-    font-size: 14px;
-    /* Tamanho do texto */
-    color: #6366f1;
-    /* Cor roxa */
-    font-weight: 700;
-    /* Texto mais grosso */
-    margin-bottom: 8px;
-    /* Espaço abaixo */
-}
-
-
-/* Nome do estabelecimento */
-.comprovante h3 {
-    font-size: 20px;
-    /* Tamanho do nome */
-    color: #1e293b;
-    /* Cor do texto */
-    margin-bottom: 15px;
-    /* Espaço abaixo */
-}
-
-
-/* Área dos produtos */
-.itens {
-    margin-bottom: 18px;
-    /* Espaço abaixo da lista */
-}
-
-
-/* Cada produto */
-.item {
-    padding: 8px 0;
-    /* Espaço em cima e embaixo */
-
-    border-bottom: 1px solid #f1f5f9;
-    /* Linha separando produtos */
-
-    color: #475569;
-    /* Cor do texto */
-
-    font-size: 15px;
-    /* Tamanho do texto */
-}
-
-
-/* Total daquele comprovante */
-.total-nota {
-    font-size: 17px;
-    /* Tamanho do texto */
-
-    font-weight: 700;
-    /* Texto em negrito */
-
-    color: #4f46e5;
-    /* Cor roxa */
-
-    padding-top: 10px;
-    /* Espaço acima */
-}
-
-/* ================================
-   STATUS DA IA
-================================ */
-
-.status {
-    margin-top: 20px;
-    text-align: center;
-    font-size: 15px;
-    font-weight: 600;
-    color: #6366f1;
-}
-
-/* ================================
-   BOTÃO LIMPAR GASTOS
-================================ */
-
-.limpar {
-    margin-top: 15px;
-
-    padding: 10px 18px;
-
-    border: none;
-
-    border-radius: 10px;
-
-    background: #f1f5f9;
-
-    color: #475569;
-
-    font-size: 14px;
-
-    font-weight: 600;
-
-    cursor: pointer;
-
-    transition: 0.3s ease;
-}
-
-
-/* Quando passar o mouse */
-
-.limpar:hover {
-    background: #e2e8f0;
-
-    transform: translateY(-2px);
-}
-
-/* ================================
-   RESUMO DOS GASTOS
-================================ */
-
-.resumo {
-
-    width: 100%;
-
-    max-width: 500px;
-
-    background: white;
-
-    border: 1px solid #e2e8f0;
-
-    border-radius: 24px;
-
-    padding: 25px;
-
-    margin-bottom: 25px;
-
-    box-shadow:
-        0 8px 25px rgba(15, 23, 42, 0.06);
-}
-
-
-/* Título do resumo */
-
-.resumo h2 {
-
-    font-size: 20px;
-
-    color: #1e293b;
-
-    margin-bottom: 18px;
-}
-
-
-/* Área das categorias */
-
-.categorias {
-
-    display: flex;
-
-    flex-direction: column;
-
-    gap: 10px;
-}
-
-
-/* Cada categoria */
-
-.categoria-resumo {
-
-    display: flex;
-
-    justify-content: space-between;
-
-    align-items: center;
-
-    padding: 12px 15px;
-
-    background: #f8fafc;
-
-    border-radius: 12px;
-
-    color: #475569;
-
-    font-size: 15px;
-
-    font-weight: 600;
-}
-
-
-/* Valor da categoria */
-
-.valor-categoria {
-
-    color: #4f46e5;
-
-    font-weight: 700;
 }

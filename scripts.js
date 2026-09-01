@@ -1,286 +1,115 @@
-/*
-========================================
-GASTO NA FOTO - VERSÃO 2.0
-========================================
-*/
+let pedido = `Olhe a foto deste comprovante e responda em UMA linha, sem escrever mais nada, com 2 pedaços separados por |. Primeiro pedaço: o emoji da categoria, o nome do estabelecimento dentro de <strong>, e depois cada item comprado com seu valor, um por linha usando <br>. Segundo pedaço: o total pago, só o número, com ponto e sempre com duas casas decimais. As categorias são: 🛒 Mercado, 🚗 Transporte, 🍔 Comida, 💊 Saúde, 🎉 Lazer, 🏠 Casa, 💸 Outros. Exemplo de resposta: 🍔 <strong>Padaria Pão Quente</strong><br>Pão — R$ 5,00<br>Leite — R$ 4,50|9.50`;
 
 let total = 0;
 
-let categorias = {};
-
-
-// ========================================
-// ORIENTAÇÃO ENVIADA PARA A IA
-// ========================================
-
-let pedido = `
-Olhe a foto deste comprovante.
-
-Responda seguindo EXATAMENTE este formato:
-
-CATEGORIA|ESTABELECIMENTO|ITEMS|TOTAL
-
-As categorias possíveis são:
-
-🛒 Mercado
-🚗 Transporte
-🍔 Comida
-💊 Saúde
-🎉 Lazer
-🏠 Casa
-💸 Outros
-
-No campo ITEMS, coloque cada produto separado por ;.
-
-Cada produto deve seguir este formato:
-
-Nome do produto: R$ 0.00
-
-O TOTAL deve conter somente o número,
-com ponto decimal e duas casas.
-
-Exemplo:
-
-🍔 Comida|Padaria Pão Quente|Pão: R$ 5.00;Leite: R$ 4.50;Café: R$ 3.00|12.50
-
-Não escreva nenhuma explicação.
-`;
-
-
-// ========================================
-// FUNÇÃO PARA LER A FOTO
-// ========================================
-
 async function lerFoto() {
 
-    // Pega a foto selecionada
-    let foto = document.querySelector(".foto").files[0];
+    const input = document.querySelector(".foto");
+    const foto = input.files[0];
 
-    // Se não tiver foto, não faz nada
     if (!foto) {
         return;
     }
 
+    const lista = document.querySelector(".lista");
 
-    // ========================================
-    // MOSTRA O STATUS
-    // ========================================
+    lista.innerHTML = `
+        <div class="comprovante">
+            <div class="total-nota">
+                ⏳ Lendo o comprovante...
+            </div>
+        </div>
+    `;
 
-    document.querySelector(".status").innerHTML =
-        "🤖 Analisando comprovante...";
+    try {
 
+        console.log("Foto selecionada:", foto);
+        console.log("Tipo:", foto.type);
+        console.log("Tamanho:", foto.size);
 
-    // ========================================
-    // ENVIA A FOTO PARA A IA
-    // ========================================
+        if (typeof puter === "undefined") {
+            throw new Error("O Puter não foi carregado.");
+        }
 
-    let resposta = await puter.ai.chat(pedido, foto);
+        console.log("Puter carregado.");
+        console.log("Enviando foto para a IA...");
 
+        const resposta = await puter.ai.chat(
+            pedido,
+            foto,
+            false,
+            {
+                normalize: true
+            }
+        );
 
-    // ========================================
-    // PEGA A RESPOSTA
-    // ========================================
+        console.log("Resposta recebida:", resposta);
 
-    let texto = resposta.message.content;
+        if (!resposta || !resposta.message) {
+            throw new Error("A IA não retornou uma resposta.");
+        }
 
-    console.log("Resposta da IA:");
-    console.log(texto);
+        let texto = resposta.message.content;
 
+        if (typeof texto !== "string") {
+            throw new Error("A resposta da IA não veio em texto.");
+        }
 
-    // ========================================
-    // SEPARA AS INFORMAÇÕES
-    // ========================================
+        console.log("Texto da IA:", texto);
 
-    let partes = texto.split("|");
+        const partes = texto.split("|");
 
-    console.log("Partes:");
-    console.log(partes);
+        if (partes.length < 2) {
+            throw new Error("A IA respondeu em um formato inesperado.");
+        }
 
+        const informacoes = partes[0].trim();
 
-    // Verifica se a IA respondeu corretamente
-    if (partes.length < 4) {
+        const valorTexto = partes[1]
+            .trim()
+            .replace(",", ".")
+            .replace(/[^\d.]/g, "");
 
-        document.querySelector(".status").innerHTML =
-            "❌ Não foi possível analisar o comprovante.";
+        const valor = Number(valorTexto);
 
-        return;
-    }
+        if (isNaN(valor)) {
+            throw new Error("Não consegui identificar o valor da nota.");
+        }
 
+        lista.innerHTML = `
+            <div class="comprovante">
 
-    // ========================================
-    // PEGA AS INFORMAÇÕES
-    // ========================================
+                <div class="total-nota">
+                    ${informacoes}
+                    <br><br>
+                    Total da nota:
+                    R$ ${valor.toFixed(2).replace(".", ",")}
+                </div>
 
-    let categoria = partes[0];
-
-    let estabelecimento = partes[1];
-
-    let itensTexto = partes[2];
-
-    let valorTexto = partes[3];
-
-
-    // ========================================
-    // CONVERTE O VALOR
-    // ========================================
-
-    let valor = Number(valorTexto);
-
-
-    if (isNaN(valor)) {
-
-        document.querySelector(".status").innerHTML =
-            "❌ Não foi possível identificar o valor.";
-
-        return;
-    }
-
-    // ========================================
-    // ATUALIZA O RESUMO DA CATEGORIA
-    // ========================================
-
-    if (categorias[categoria]) {
-
-        categorias[categoria] += valor;
-
-    } else {
-
-        categorias[categoria] = valor;
-
-    }
-
-    // ========================================
-    // TRANSFORMA OS ITENS EM LISTA
-    // ========================================
-
-    let itens = itensTexto.split(";");
-
-    let listaItens = "";
-
-
-    itens.forEach(function (item) {
-
-        listaItens += `
-            <div class="item">
-                ${item}
             </div>
         `;
 
-    });
+        total += valor;
 
+        document.querySelector(".total-gasto").innerHTML =
+            "R$ " + total.toFixed(2).replace(".", ",");
 
-    // ========================================
-    // COLOCA O COMPROVANTE NA TELA
-    // ========================================
+        console.log("Total acumulado:", total);
 
-    document.querySelector(".lista").innerHTML += `
+    } catch (erro) {
 
-        <div class="comprovante">
+        console.error("ERRO:", erro);
 
-            <div class="categoria">
-                ${categoria}
-            </div>
+        lista.innerHTML = `
+            <div class="comprovante">
 
-            <h3>
-                ${estabelecimento}
-            </h3>
-
-            <div class="itens">
-                ${listaItens}
-            </div>
-
-            <div class="total-nota">
-                Total da nota:
-                R$ ${valor.toFixed(2)}
-            </div>
-
-        </div>
-
-    `;
-
-
-    // ========================================
-    // ATUALIZA O TOTAL GERAL
-    // ========================================
-
-    total += valor;
-
-    document.querySelector(".total-gasto").innerHTML =
-        "R$ " + total.toFixed(2);
-
-        atualizarResumo();
-
-
-    // ========================================
-    // FINALIZA O STATUS
-    // ========================================
-
-    document.querySelector(".status").innerHTML =
-        "✅ Comprovante analisado!";
-}
-
-// ========================================
-// LIMPAR TODOS OS GASTOS
-// ========================================
-
-function limparGastos() {
-
-    // Zera o total
-    total = 0;
-
-    // Zera as categorias
-    categorias = {};
-
-    // Atualiza o total
-    document.querySelector(".total-gasto").innerHTML =
-        "R$ 0,00";
-
-    // Apaga os comprovantes
-    document.querySelector(".lista").innerHTML = "";
-
-    // Limpa o status
-    document.querySelector(".status").innerHTML = "";
-
-    // Limpa o resumo
-    atualizarResumo();
-}
-
-// ========================================
-// MOSTRAR RESUMO DAS CATEGORIAS
-// ========================================
-
-function atualizarResumo() {
-
-    let areaCategorias =
-        document.querySelector(".categorias");
-
-
-    // Limpa o resumo atual
-
-    areaCategorias.innerHTML = "";
-
-
-    // Passa por cada categoria
-
-    for (let categoria in categorias) {
-
-        let valor = categorias[categoria];
-
-
-        areaCategorias.innerHTML += `
-
-            <div class="categoria-resumo">
-
-                <span>
-                    ${categoria}
-                </span>
-
-                <span class="valor-categoria">
-                    R$ ${valor.toFixed(2)}
-                </span>
+                <div class="total-nota">
+                    ❌ Não foi possível ler o comprovante.
+                    <br><br>
+                    <small>${erro.message}</small>
+                </div>
 
             </div>
-
         `;
     }
 }
